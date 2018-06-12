@@ -11,22 +11,39 @@
   <p>
     If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
   </p>
+<div padding>
+  <ion-segment [(ngModel)]="pet">
+    <ion-segment-button value="kittens">
+      Kittens
+    </ion-segment-button>
+    <ion-segment-button value="puppies">
+      Puppies
+    </ion-segment-button>
+  </ion-segment>
+</div>
 
-<ion-slides pager>
+<div [ngSwitch]="pet">
+  <ion-list *ngSwitchCase="'puppies'">
+    <ion-item>
+      <ion-thumbnail item-start>
+        <img src="img/thumbnail-puppy-1.jpg">
+      </ion-thumbnail>
+      <h2>Ruby</h2>
+    </ion-item>
+    ...
+  </ion-list>
 
-  <ion-slide style="background-color: green">
-    <h2>Slide 1</h2>
-  </ion-slide>
+  <ion-list *ngSwitchCase="'kittens'">
+    <ion-item>
+      <ion-thumbnail item-start>
+        <img src="img/thumbnail-kitten-1.jpg">
+      </ion-thumbnail>
+      <h2>Luna</h2>
+    </ion-item>
+    ...
+  </ion-list>
+</div>
 
-  <ion-slide style="background-color: blue">
-    <h2>Slide 2</h2>
-  </ion-slide>
-
-  <ion-slide style="background-color: red">
-    <h2>Slide 3</h2>
-  </ion-slide>
-
-</ion-slides>
   <ion-item>
   <ion-label>Sam</ion-label>
   <ion-toggle  checked="true"></ion-toggle>
